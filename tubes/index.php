@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(isset($_SESSION['login'])){
+  header( "Location: login.php ");
+  exit;
+}
 require 'function.php';
 $sport = query("SELECT * FROM sport");
 
@@ -14,12 +20,12 @@ if(isset($_POST["cari"]) ) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sport</title>
+  <title>Sport</title>
 </head>
 
 <body>
-
   <div class="container">
+    <a href="logout.php">Logout</a>
     <h1>Stadion Indonesia</h1>
     <a href="tambah.php" class="btn btn-dark">Tambah Data</a>
     <br><br>
@@ -44,8 +50,8 @@ if(isset($_POST["cari"]) ) {
         <?php foreach ($sport as $spt) : ?>
           <tr>
             <th scope="row"><?= $spt['id']; ?></th>
-            <td><?= $spt['nama']; ?></td>
-            <td><img src="img/<?= $spt["gambar"]; ?>" width="150"></td>
+            <td><?= $spt['nama']; ?></td> 
+            <td><img src="../img/<?= $spt["gambar"]; ?>" width="150"></td>
             <td><?= $spt['kota']; ?></td>
             <td><?= $spt['tahun']; ?></td>
             <td>

@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if(isset($_SESSION['login'])){
+  header( "Location: login.php ");
+  exit;
+}
+
 require 'function.php';
 // ambil data url
 $id = $_GET["id"];
@@ -38,7 +45,7 @@ if (isset($_POST["submit"])) {
     <div class="container col-8">
         <h1>Edit Data Stadion</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?= $spt["nama"]; ?>">
+            <input type="hidden" name="id" value="<?= $spt["id"]; ?>">
             <input type="hidden" name="gambarLama" value="<?= $spt["gambar"]; ?>">
             <div class="mb-3">
                 <label for="nama" class="form-label">nama</label>
