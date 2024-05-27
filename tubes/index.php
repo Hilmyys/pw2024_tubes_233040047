@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['login'])){
+if(!isset($_SESSION['login'])){
   header( "Location: login.php ");
   exit;
 }
@@ -25,7 +25,7 @@ if(isset($_POST["cari"]) ) {
 
 <body>
   <div class="container">
-    <a href="logout.php">Logout</a>
+    <a href="logout.php" class="btn btn-secondry">Logout</a>
     <h1>Stadion Indonesia</h1>
     <a href="tambah.php" class="btn btn-dark">Tambah Data</a>
     <br><br>
@@ -47,9 +47,10 @@ if(isset($_POST["cari"]) ) {
         </tr>
       </thead>
       <tbody>
+        <?php $i= 1; ?>
         <?php foreach ($sport as $spt) : ?>
           <tr>
-            <th scope="row"><?= $spt['id']; ?></th>
+            <th scope="row"><?= $i;?></th>
             <td><?= $spt['nama']; ?></td> 
             <td><img src="../img/<?= $spt["gambar"]; ?>" width="150"></td>
             <td><?= $spt['kota']; ?></td>
@@ -59,6 +60,7 @@ if(isset($_POST["cari"]) ) {
               <a href="delete.php?id=<?= $spt["id"]; ?>" class="badge text-bg-danger text-decoration-none" onclick="return confirm('yakin?');">Delete</a>
             </td>
           </tr>
+          <?php $i++?>
         <?php endforeach; ?>
       </tbody>
     </table>

@@ -55,6 +55,27 @@ if (isset($_POST["login"])) {
         </div>
     </div>
     </form>
+    <!-- <h3>login</h3>
+    <label for="username" autofoces autocomplete="off" require>username :</label>
+    <input type="text" name="username" id="username">
+    
+    <form action="" method="post">
+        <ul>
+            <li>
+            </li>
+            <li>
+                <label for="passowrd">passowrd :</label>
+                <input type="password" name="password" id="passowrd" require>
+            </li>
+            <li>
+                <button type="submit" name="login">Login</button>
+            </li>
+            <li>
+                <a href="registrasi.php">Registrasi
+                </a>
+            </li>
+        </ul>
+    </form> -->
 </body>
 
 </html>

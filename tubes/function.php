@@ -123,18 +123,14 @@ function login($data) {
     $password = htmlspecialchars($data["password"]);
     
     // cek dulu username nya
-    if ($user = query("SELECT * FROM user WHERE username = '$username'")) {
+    if ($user = query("SELECT * FROM user WHERE username = '$username'")[0]) {
         if(password_verify($password, $user['password'])) {
 
             $_SESSION['login'] = true;
             header("Location: index.php");
             exit;
         }
-    } 
-        return [
-            'error' => true,
-            'pesan' => 'Username/ Password Salah'
-        ];
+    }
     }
 
 
