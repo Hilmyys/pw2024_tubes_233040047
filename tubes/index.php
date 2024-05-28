@@ -59,7 +59,7 @@ if(isset($_POST["cari"]) ) {
               <a href="edit.php?id=<?= $spt["id"]; ?>" class="badge text-bg-secondary text-decoration-none">Edit</a>
               <a href="delete.php?id=<?= $spt["id"]; ?>" class="badge text-bg-danger text-decoration-none" onclick="return confirm('yakin?');">Delete</a>
             </td>
-          </tr>
+          </tr>  
           <?php $i++?>
         <?php endforeach; ?>
       </tbody>

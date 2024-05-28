@@ -14,7 +14,7 @@ $id = $_GET["id"];
 $spt = query("SELECT * FROM sport WHERE id = $id")[0];
 
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["edit"])) {
 
     if (edit($_POST) > 0) {
         echo "
@@ -46,13 +46,13 @@ if (isset($_POST["submit"])) {
         <h1>Edit Data Stadion</h1>
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $spt["id"]; ?>">
-            <input type="hidden" name="gambarLama" value="<?= $spt["gambar"]; ?>">
+           
             <div class="mb-3">
                 <label for="nama" class="form-label">nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" require value="<?= $spt["nama"]; ?>">
             </div>
             <div class="mb-3">
-                <label for="gambar" class="form-label">gambar</label><br>
+                <label for="gambar" class="form-label">gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" value="<?= $spt["gambar"]; ?>">
             </div>
             <div class="mb-3">
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
                 <label for="tahun" class="form-label">tahun didirikan</label>
                 <input type="text" class="form-control" id="tahun" name="tahun" value="<?= $spt["tahun"]; ?>">
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">edit</button>
+            <button type="submit" name="edit" class="btn btn-primary">edit</button>
         </form>
 </body>
 </html>

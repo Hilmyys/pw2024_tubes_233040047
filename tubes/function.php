@@ -10,7 +10,7 @@ function query($query) {
   }
   return $rows;
 }
-
+ 
 function tambah($data) {
     global $conn;
 
@@ -106,6 +106,7 @@ function edit($data) {
     
     return mysqli_affected_rows($conn);
 }
+
 
 function cari($keyword) {
     $query = "SELECT * FROM sport WHERE
