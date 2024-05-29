@@ -69,13 +69,19 @@ function upload() {
     $namafileBaru .= '.';
     $namafileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, 'img/' . $namafileBaru);
+    move_uploaded_file($tmpName, '../img/' . $namafile);
 
     return $namafile;
 }
 
 function hapus($id) {
     global $conn;
+    
+    $spt = query("SELECT * FROM sport WHERE id = $id");
+    if($spt['gambar'] != 'nophoto.jpg') {
+
+        unlink('../img/' . $spt['gambar']);
+    }
     mysqli_query($conn, "DELETE FROM sport WHERE id = $id");
 
     return mysqli_affected_rows($conn);

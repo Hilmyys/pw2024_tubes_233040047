@@ -6,7 +6,16 @@ if(!isset($_SESSION['login'])){
   exit;
 }
 require 'function.php';
-$sport = query("SELECT * FROM sport");
+// pagination
+// konfigurasi
+
+$jumlahDataPerHalaman = 2;
+$jumlahData = count(query("SELECT * FROM sport"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = $_GET["halaman"]
+;
+$sport = query("SELECT * FROM sport LIMIT 0, $jumlahDataPerHalaman");
+
 
 //tombol cari diklik
 if(isset($_POST["cari"]) ) {
@@ -17,23 +26,39 @@ if(isset($_POST["cari"]) ) {
 <html lang="en">
 
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sport</title>
+  <link rel="stylesheet" href="../css/font.css">
 </head>
-
 <body>
-  <div class="container">
-    <a href="logout.php" class="btn btn-secondry">Logout</a>
-    <h1>Stadion Indonesia</h1>
-    <a href="tambah.php" class="btn btn-dark">Tambah Data</a>
-    <br><br>
-    <form action="" method="post" class="d-flex" role="search">
-      <input class="form-control me-2" type="text" name="keyword" autofocus placeholder="Search" autocomplete="off">
-      <button class="btn btn-outline-dark" type="submit" name="cari">Search</button>
-    </form>
-    <br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="logout.php" class="btn btn-secondry">Logout</a>
+          </li>
+      </ul>
+      <form action="" method="post" class="d-flex" role="search">
+        <input class="form-control me-2" type="text" name="keyword" autofocus placeholder="Search" autocomplete="off">
+        <button class="btn btn-outline-dark" type="submit" name="cari">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h1>Stadion Indonesia</h1>
+  <br><br>
+  <a href="tambah.php" class="btn btn-dark">Tambah Data</a>
 
     <table class="table">
       <thead>
