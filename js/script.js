@@ -20,4 +20,4 @@ keyword.addEventListener('keyup', function() {
     xhr.open('GET', '../ajax/sport.php?keyword=' + keyword.value, true);
     xhr.send();
 
-});
+})

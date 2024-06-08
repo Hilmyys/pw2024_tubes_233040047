@@ -30,6 +30,7 @@ if (isset($_POST['registrasi'])) {
             </div>
 
             <form action="" method="post">
+
                 <div class="input_box">
                     <label for="username">Username</label>
                     <input type="text" name="username" class="input-field" autofocus autocomplete="off" required>
@@ -43,12 +44,12 @@ if (isset($_POST['registrasi'])) {
                     <input type="text" name="password2" class="input-field" required>
                 </div>
                 <div class="input_box">
-                    <input type="submit" name="registrasi" value="login" class="input-submit">
+                    <input type="submit" name="registrasi" value="registrasi" class="input-submit">
                 </div>
 
         </div>
     </div>
     </form>
-</body>
+</body> 
 
 </html>

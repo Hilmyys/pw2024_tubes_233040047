@@ -5,7 +5,7 @@ $keyword = $_GET["keyword"];
 
 $query = "SELECT * FROM sport WHERE
         nama LIKE '%$keyword%' OR 
-        kota LIKE '%$keyword%' OR   
+        id_kota LIKE '%$keyword%' OR   
         tahun LIKE '%$keyword%'
         ";
 $sport = query($query);
@@ -29,7 +29,7 @@ $sport = query($query);
                 <th scope="row"><?= $i; ?></th>
                 <td><?= $spt['nama']; ?></td>
                 <td><img src="../img/<?= $spt["gambar"]; ?>" width="150"></td>
-                <td><?= $spt['kota']; ?></td>
+                <td><?= $spt['id_kota']; ?></td>
                 <td><?= $spt['tahun']; ?></td>
                 <td>
                     <a href="edit.php?id=<?= $spt["id"]; ?>" class="badge text-bg-secondary text-decoration-none">Edit</a>

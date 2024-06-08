@@ -4,6 +4,8 @@
 function query($query) {
     global $conn;
  $result = mysqli_query($conn, $query);
+
+//  jika hasilnya hanya 1 data
  $rows = [];
   while($row = mysqli_fetch_assoc($result)) {
       $rows[] = $row;
@@ -21,11 +23,12 @@ function tambah($data) {
         return false;
     }
 
-    $kota = htmlspecialchars($data["kota"]);
+    $id_kota = htmlspecialchars($data["id_kota"]);
     $tahun = htmlspecialchars($data["tahun"]);
+    $details = htmlspecialchars($data["details"]);
 
     $query = "INSERT INTO sport VALUES
-            (NULL, '$nama', '$gambar', '$kota', '$tahun')
+            (NULL, '$nama', '$gambar', '$id_kota', '$tahun' , '$details')
             ";
     mysqli_query($conn, $query);
     
@@ -77,7 +80,7 @@ function upload() {
 function hapus($id) {
     global $conn;
     
-    $spt = query("SELECT * FROM sport WHERE id = $id");
+    $spt = query("SELECT * FROM sport WHERE id = $id")[0];
     if($spt['gambar'] != 'nophoto.jpg') {
 
         unlink('../img/' . $spt['gambar']);
@@ -98,14 +101,16 @@ function edit($data) {
     } else {
         $gambar = upload();
     }
-    $kota = htmlspecialchars($data["kota"]);
+    $id_kota = htmlspecialchars($data["id_kota"]);
     $tahun = htmlspecialchars($data["tahun"]);
+    $details = htmlspecialchars($data["details"]);
 
     $query = "UPDATE sport SET
             nama = '$nama',
             gambar = '$gambar',
-            kota = '$kota',
-            tahun = '$tahun'
+            id_kota = '$id_kota',
+            tahun = '$tahun',
+            details = '$details'
             WHERE id  = '$id'
             ";
     mysqli_query($conn, $query);
@@ -117,7 +122,7 @@ function edit($data) {
 function cari($keyword) {
     $query = "SELECT * FROM sport WHERE
         nama LIKE '%$keyword%' OR 
-        kota LIKE '%$keyword%' OR 
+        id_kota LIKE '%$keyword%' OR 
         tahun LIKE '%$keyword%'
     "; 
     return query($query);
@@ -147,6 +152,7 @@ function registrasi($data)  {
     $username = htmlspecialchars(strtolower($data['username']));
     $password1= mysqli_real_escape_string($conn, $data['password1']);
     $password2 = mysqli_real_escape_string($conn, $data['password2']);
+
 
     if(empty($username) || empty($password1) || empty($password2) ) {
         echo "<script>

@@ -6,16 +6,6 @@ if (!isset($_SESSION['login'])) {
   exit;
 }
 require 'function.php';
-// pagination
-// konfigurasi
-
-// $jumlahDataPerHalaman = 2;
-// $jumlahData = count(query("SELECT * FROM sport"));
-// $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-// $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
-// $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-// // halaman = 2, awalData = 4
-// // halaman = 3, awalData = 4 
 
 
 $sport = query("SELECT * FROM sport");
@@ -42,16 +32,16 @@ if (isset($_POST["cari"])) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar1">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Sprt</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="logout.php" class="btn btn-secondry logout">Logout</a>
+            <a href="logout.php" class="btn btn-outline-dark logout">Logout</a>
           </li>
         </ul>
         <form action="" method="post" class="d-flex" role="search">
@@ -63,8 +53,7 @@ if (isset($_POST["cari"])) {
   </nav>
   <div id="container">   
     <h1>Stadion Indonesia</h1>
-    <a href="tambah.php" class="btn btn-dark tambah">Tambah Data</a>
-
+    <a href="tambah.php" class="btn btn-dark tambah" role="button">Tambah Data</a> <a href="cetak.php" class="btn btn-dark tambah" targer="_blank" >Cetak</a>
     <table class="table">
       <thead>
         <tr>
@@ -73,6 +62,7 @@ if (isset($_POST["cari"])) {
           <th scope="col">Gambar</th>
           <th scope="col">Kota</th>
           <th scope="col">Tahun Didirikan</th>
+          <th scope="col">Details</th>
           <th scope="col" class="aksi">Aksi</th>
         </tr>
       </thead>
@@ -83,8 +73,11 @@ if (isset($_POST["cari"])) {
             <th scope="row"><?= $i; ?></th>
             <td><?= $spt['nama']; ?></td>
             <td><img src="../img/<?= $spt["gambar"]; ?>" width="150"></td>
-            <td><?= $spt['kota']; ?></td>
+            <td><?= $spt['id_kota']; ?></td>
             <td><?= $spt['tahun']; ?></td>
+            <td class="aksi">
+              <a href="details.php?id=<?= $spt["id"]; ?>" class="badge text-bg-dark text-decoration-none">details</a>
+            </td>
             <td class="aksi">
               <a href="edit.php?id=<?= $spt["id"]; ?>" class="badge text-bg-secondary text-decoration-none">Edit</a>
               <a href="delete.php?id=<?= $spt["id"]; ?>" class="badge text-bg-danger text-decoration-none" onclick="return confirm('yakin?');">Delete</a>

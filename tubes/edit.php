@@ -56,14 +56,18 @@ if (isset($_POST["edit"])) {
                 <input type="file" class="form-control" id="gambar" name="gambar" value="<?= $spt["gambar"]; ?>">
             </div>
             <div class="mb-3">
-                <label for="kota" class="form-label">kota</label>
-                <input type="text" class="form-control" id="kota" name="kota" value="<?= $spt["kota"]; ?>">
+                <label for="id_kota" class="form-label">Kota</label>
+                <input type="text" class="form-control" id="id_kota" name="id_kota" value="<?= $spt["id_kota"]; ?>">
             </div>
             <div class="mb-3">
                 <label for="tahun" class="form-label">tahun didirikan</label>
                 <input type="text" class="form-control" id="tahun" name="tahun" value="<?= $spt["tahun"]; ?>">
             </div>
-            <button type="submit" name="edit" class="btn btn-primary">edit</button>
+            <div class="mb-3">
+                <label for="details" class="form-label">details</label>
+                <input type="text" class="form-control" id="details" name="details" value="<?= $spt["details"]; ?>">
+            </div>
+            <button type="submit" name="edit" class="btn btn-outline-dark">edit</button>
         </form>
 </body>
 </html>

@@ -24,6 +24,8 @@ if (isset($_POST["submit"])) {
         </script>";
     }
 }
+
+$sport = query("SELECT * FROM kota");
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,16 +49,24 @@ if (isset($_POST["submit"])) {
                 <label for="gambar" class="form-label">gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar">
             </div>
-            <div class="mb-3">
-                <label for="kota" class="form-label">kota</label>
-                <input type="text" class="form-control" id="kota" name="kota">
-            </div>
-            <div class="mb-3">
-                <label for="tahun" class="form-label">tahun didirikan</label>
-                <input type="text" class="form-control" id="tahun" name="tahun">
-            </div>
-            <button type="submit" name="submit" class="btn btn-dark">Tambah</button>
+            <div class="form-group">
+                <label for="id_kota">kota</label>
+                <select class="form-control" id="id_kota" name="id_kota">
+                    <?php foreach ($sport as $spt) : ?>
+                        <option value="<?= $spt['id_kota']; ?>"><?= $spt['kota']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tahun" class="form-label">tahun didirikan</label>
+                            <input type="text" class="form-control" id="tahun" name="tahun">
+                            </div>
+                            <div class="mb-3">
+                                <label for="details" class="form-label">Details</label>
+                                <input type="text" class="form-control" id="details" name="details">
+                            </div>
+                            <button type="submit" name="submit" class="btn btn-outline-dark">Tambah</button>
         </form>
 </body>
 
-</html>
+</html> 
