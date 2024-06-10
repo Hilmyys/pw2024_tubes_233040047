@@ -20,8 +20,6 @@ $sport = query($query);
   <img src="../img/<?= $spt["gambar"]; ?>" class="card-img-top" alt="...">
   <div class="card-body text-center" style="background-color:darkgrey;">
     <h5 class="card-title"><?= $spt["nama"];?></h5>
-    <p><?= $spt["id_kota"]; ?></p>
-    <h5><?= $spt["tahun"]; ?></h5>
     <br>
     <a href="details.php?id=<?= $spt["id"]; ?>" class="badge text-bg-dark text-decoration-none">details</a>
   </div>

@@ -46,6 +46,9 @@ if (isset($_POST['registrasi'])) {
                 <div class="input_box">
                     <input type="submit" name="registrasi" value="registrasi" class="input-submit">
                 </div>
+                <div class="input_box">
+                    <a href="login.php">Login</a>
+                </div>
 
         </div>
     </div>

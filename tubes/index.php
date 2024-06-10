@@ -34,7 +34,7 @@ if (isset($_POST["cari"])) {
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar1">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Sprt</a>
+      <a class="navbar-brand" href="#">SPORT</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,7 +51,7 @@ if (isset($_POST["cari"])) {
       </div>
     </div>
   </nav>
-  <div id="container">   
+  <div id="container" >   
     <h1>Stadion Indonesia</h1>
     <a href="tambah.php" class="btn btn-dark tambah" role="button">Tambah Data</a> <a href="cetak.php" class="btn btn-dark tambah" targer="_blank" >Cetak</a>
     <table class="table">
@@ -88,6 +88,6 @@ if (isset($_POST["cari"])) {
       </tbody>
     </table>
   </div>
-  <script src="../js/script.js"></script>
-</body>
+  </body>
+<script src="../js/script.js"></script>
 </html>

@@ -115,6 +115,9 @@ if (isset($_POST["cari"])) {
                 <div class="input_box">
                     <input type="submit" name="login" value="login" class="input-submit">
                 </div>
+                <div class="input_box">
+                    <a href="registrasi.php">Registrasi</a>
+                </div>
         </div>
     </div>
     </form>

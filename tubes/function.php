@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+
     $conn = mysqli_connect('localhost', 'root', '', 'pw2024_tubes_233040047');
 
 function query($query) {

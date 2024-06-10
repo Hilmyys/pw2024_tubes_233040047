@@ -19,6 +19,7 @@ $sport = query($query);
             <th scope="col">Gambar</th>
             <th scope="col">Kota</th>
             <th scope="col">Tahun Didirikan</th>
+            <th scope="col">Details</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
@@ -31,6 +32,9 @@ $sport = query($query);
                 <td><img src="../img/<?= $spt["gambar"]; ?>" width="150"></td>
                 <td><?= $spt['id_kota']; ?></td>
                 <td><?= $spt['tahun']; ?></td>
+                <td class="aksi">
+              <a href="details.php?id=<?= $spt["id"]; ?>" class="badge text-bg-dark text-decoration-none">details</a>
+            </td>
                 <td>
                     <a href="edit.php?id=<?= $spt["id"]; ?>" class="badge text-bg-secondary text-decoration-none">Edit</a>
                     <a href="delete.php?id=<?= $spt["id"]; ?>" class="badge text-bg-danger text-decoration-none" onclick="return confirm('yakin?');">Delete</a>
